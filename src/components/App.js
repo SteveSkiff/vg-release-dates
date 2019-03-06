@@ -6,9 +6,12 @@ import {createGlobalStyle} from 'styled-components'
 import Loading from './Loading';
 
 const GlobalStyle = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
   body {
     padding: 0;
     margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(to right, #CBF2F2 0%,#BCE2E2 50%,#CBF2F2 100%);
   }
 `
 
@@ -17,13 +20,10 @@ class App extends React.Component {
     super(props);
     this.state = {
       vgData: '',
-      filteredData: '',
     }
-    this.filterData = this.filterData.bind(this);
   }
 
   componentDidMount() {
-    console.log('Mounting the App component.')
     const date = new Date();
     const currentDay = date.getDate();
     const currentMonth = date.getMonth();
@@ -33,26 +33,11 @@ class App extends React.Component {
     fetch(url)
     .then(response => response.json())
     .then(data => { 
-      this.setState({vgData: data.results,
-                    filteredData: data.results})
+      this.setState({vgData: data.results})
     })
     .catch(error => console.error(error))
   }
 
-  filterData(filter) {
-    const games = this.state.vgData;
-    if (filter !== '') {
-      console.log(`Running filter with ${filter} as the filter.`)
-      console.log(games)
-      let filteredArray = [];
-      this.setState({filteredData: 
-        filteredArray = games.filter(game => game.platform.name === filter)
-      })
-      
-    } else if(filter == '') {
-      this.setState({filteredData: this.state.vgData})
-    }
-  }
 
   render() {
     return(

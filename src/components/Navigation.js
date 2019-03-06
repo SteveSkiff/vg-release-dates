@@ -1,11 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import Media from './Breakpoints'
+import LogoImg from '../img/vgrd-logo.png'
 
 const NavContainer = styled.nav`
-    background-color: lightgrey;
+    background-color: #606F73;
     margin: 0;
     padding: 8px 8px;
+    box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.5), 0px 0px 10px 1px rgba(0,0,0,0.1);
     ${Media.phone`
         margin-bottom: 48px;
     `}
@@ -25,28 +27,16 @@ const NavItem = styled.li`
     list-style-type: none;
     display: flex;
     justify-content: center;
+    color: white;
 `
 
 const Logo = styled.img`
     height: 50px;
     width: 50px;
-    background-color: pink;
 `
 
 const LogoText = styled.p`
     padding-left: 8px;
-`
-
-const NavLink = styled.a`
-    text-decoration: none;
-    cursor: pointer;
-    color: black;
-    transition: 0.2s ease
-    padding-bottom: 3px;
-    &:hover {
-        border-bottom: 3px solid red;
-        padding: 0;
-    }
 `
 
 const Navigation = () => (
@@ -55,10 +45,7 @@ const Navigation = () => (
 
             <NavList>
                 <NavItem>
-                    <Logo /> <LogoText>Video Game Release Dates</LogoText>
-                </NavItem>
-                <NavItem>
-                    <NavLink href="#">About</NavLink>
+                    <Logo src={LogoImg} /> <LogoText>Video Game Release Dates</LogoText>
                 </NavItem>
             </NavList>
 
