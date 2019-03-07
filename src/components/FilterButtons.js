@@ -4,7 +4,7 @@ import Media from './Breakpoints'
 
 const FilterBtn = styled.button`
     font-size: 16px;
-    border: ${props => props.clear ? "none" : "1px solid black"};
+    border: ${props => props.clear ? "none" : "1px solid grey"};
     padding: 8px;
     background-color: ${props => props.clear ? "rgba(0,0,0,0.0)" : "white"};
     border-radius: 2px;
